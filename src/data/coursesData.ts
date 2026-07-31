@@ -194,7 +194,7 @@ export const COURSES: Course[] = [
       'Teknisi Elektromedis (ATEM) RS'
     ],
     prerequisites: ['Pendidikan D3/D4/S1 Radiologi, Fisika Medis, atau Elektromedis'],
-    certification: 'Sertifikat Kompetensi Pengoperasian & QA CT Scan Multislice (Akreditasi BAPETEN/Kemenkes Standards)',
+    certification: 'Sertifikat Kompetensi Pengoperasian & QA CT Scan Multislice (Akreditasi BNSP/Kemenkes Standards)',
     instructor: {
       name: 'Siti Rahmawati, S.ST., M.Tr.ID.',
       title: 'Senior Application Specialist CT Scan & Master Radiographer',

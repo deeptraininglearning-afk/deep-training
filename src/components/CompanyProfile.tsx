@@ -87,7 +87,7 @@ export const CompanyProfile: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                    <span>Menjangkau instansi kesehatan dan lembaga keuangan nasional dalam menyelaraskan kebutuhan kepatuhan regulasi (Kemenkes, OJK, BAPETEN).</span>
+                    <span>Menjangkau instansi kesehatan dan lembaga keuangan nasional dalam menyelaraskan kebutuhan kepatuhan regulasi (Kemenkes, OJK, BNSP).</span>
                   </li>
                 </ul>
               </div>
@@ -192,7 +192,7 @@ export const CompanyProfile: React.FC = () => {
 
                 <div className="bg-white p-4 rounded-xl border border-slate-200 text-center space-y-2">
                   <Microscope className="w-8 h-8 text-emerald-600 mx-auto" />
-                  <div className="font-bold text-xs text-[#002147]">BAPETEN / Kemenkes</div>
+                  <div className="font-bold text-xs text-[#002147]">BNSP / Kemenkes</div>
                   <div className="text-[10px] text-slate-500">Sesuai Standar K3 Radiasi Alat Medis</div>
                 </div>
 

@@ -57,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, activeSection, s
             </span>
             <span className="hidden md:flex items-center gap-1.5 text-amber-300 font-medium">
               <BookmarkCheck className="w-3.5 h-3.5" />
-              Lembaga Pelatihan Terakreditasi BAPETEN & Kemenkes Compliance
+              Lembaga Pelatihan Terakreditasi BNSP & Kemenkes Compliance
             </span>
           </div>
 
