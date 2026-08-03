@@ -12,7 +12,6 @@ import { RegistrationFormModal } from './components/RegistrationFormModal';
 import { ScheduleAndBrochure } from './components/ScheduleAndBrochure';
 import { CompanyProfile } from './components/CompanyProfile';
 import { TestimonialsAndClients } from './components/TestimonialsAndClients';
-import { SocialMediaFeed } from './components/SocialMediaFeed';
 import { ContactAndLocation } from './components/ContactAndLocation';
 import { Footer } from './components/Footer';
 import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
@@ -99,10 +98,7 @@ export default function App() {
         {/* Testimonials & Corporate Client Badges */}
         <TestimonialsAndClients />
 
-        {/* Social Media Integration (IG, LinkedIn, YT, WA) */}
-        <SocialMediaFeed />
-
-        {/* Contact Info, Office Locations, FAQ */}
+        {/* FAQ Section */}
         <ContactAndLocation />
       </main>
 

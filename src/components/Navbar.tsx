@@ -25,7 +25,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, activeSection, s
     { id: 'katalog', label: 'Katalog Kursus' },
     { id: 'jadwal', label: 'Jadwal & Brosur' },
     { id: 'profil', label: 'Tentang Kami' },
-    { id: 'sosmed', label: 'Media Sosial' },
     { id: 'faq', label: 'FAQ' },
   ];
 
