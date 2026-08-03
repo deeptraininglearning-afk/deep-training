@@ -86,7 +86,7 @@ export const SocialMediaFeed: React.FC = () => {
           </a>
 
           <a
-            href="https://wa.me/6281288997700"
+            href="https://wa.me/628176707234"
             target="_blank"
             rel="noreferrer"
             className="bg-emerald-600 hover:bg-emerald-700 text-white p-4 rounded-2xl flex items-center justify-between transition-transform hover:-translate-y-1 shadow-md"

@@ -119,9 +119,8 @@ export const Footer: React.FC<FooterProps> = ({ setActiveSection, onOpenRegister
               Gedung DEEP Learning Center, Jl. TB Simatupang No. 88, Jakarta Selatan.
             </p>
             <div className="space-y-1 text-slate-300 pt-1">
-              <div>Telp: (021) 7890-1234</div>
-              <div>WA: +62 812-8899-7700</div>
-              <div>Email: info@deeptraining.co.id</div>
+              <div>WA: 0817-6707-234</div>
+              <div>Email: info@deeptraining.id</div>
             </div>
             <div className="bg-white/5 p-2 rounded border border-white/10 text-[10px] text-amber-300 font-medium mt-2">
               ✓ Terakreditasi Standar Pelatihan Kemenkes & Regulator

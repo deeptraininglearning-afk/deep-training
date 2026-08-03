@@ -9,7 +9,7 @@ export const WhatsAppFloatingButton: React.FC = () => {
 
   const handleSendWA = (messageToSend: string) => {
     const encoded = encodeURIComponent(messageToSend || defaultMsg);
-    window.open(`https://wa.me/6281288997700?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/628176707234?text=${encoded}`, '_blank');
     setIsOpen(false);
   };
 

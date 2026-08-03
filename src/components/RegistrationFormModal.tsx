@@ -516,7 +516,7 @@ export const RegistrationFormModal: React.FC<RegistrationFormModalProps> = ({
             {/* Direct Action Buttons */}
             <div className="space-y-3">
               <a
-                href={`https://wa.me/6281288997700?text=${whatsappMessage}`}
+                href={`https://wa.me/628176707234?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-md transition-all flex items-center justify-center gap-2"

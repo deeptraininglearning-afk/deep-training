@@ -291,7 +291,7 @@ export const ScheduleAndBrochure: React.FC<ScheduleAndBrochureProps> = ({ course
                 Tutup
               </button>
               <a
-                href="data:text/plain;charset=utf-8,Brosur%20Katalog%20Lengkap%20DEEP%20Training%20%26%20Learning%20Solutions%202026.%20Silakan%20hubungi%20info%40deeptraining.co.id%20atau%20WhatsApp%20081288997700%20untuk%20versi%20cetak%20resmi."
+                href="data:text/plain;charset=utf-8,Brosur%20Katalog%20Lengkap%20DEEP%20Training%20%26%20Learning%20Solutions%202026.%20Silakan%20hubungi%20info%40deeptraining.id%20atau%20WhatsApp%2008176707234%20untuk%20versi%20cetak%20resmi."
                 download="DEEP_Training_Brochure_2026.txt"
                 onClick={() => {
                   alert('Mengunduh Berkas Brosur Katalog DEEP Training & Learning Solutions 2026...');
