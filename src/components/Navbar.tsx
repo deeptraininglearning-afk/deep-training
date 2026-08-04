@@ -38,45 +38,45 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, activeSection, s
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
       {/* Top Bar - Clean Contact & Accreditations */}
-      <div className="bg-[#002147] text-white text-xs py-2 px-4 border-b border-amber-500/20">
+      <div className="bg-[#001f3f] text-white text-xs py-2 px-4 border-b border-[#C5A059]/30">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-5 text-slate-300 text-[11px] sm:text-xs">
-            <a href="tel:+628176707234" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href="tel:+6281380050039" className="flex items-center gap-1.5 hover:text-amber-300 transition-colors">
               <Phone className="w-3.5 h-3.5 text-[#00A8E8]" />
-              <span>0817-6707-234</span>
+              <span className="font-semibold tracking-wide">0813-8005-0039</span>
             </a>
-            <a href="mailto:info@deeptraining.id" className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href="mailto:info@deeptraining.id" className="hidden sm:flex items-center gap-1.5 hover:text-amber-300 transition-colors">
               <Mail className="w-3.5 h-3.5 text-[#00A8E8]" />
               <span>info@deeptraining.id</span>
             </a>
-            <span className="hidden md:flex items-center gap-1.5 text-amber-300 font-medium border-l border-white/20 pl-4">
-              <BookmarkCheck className="w-3.5 h-3.5" />
-              Lembaga Pelatihan Terakreditasi BNSP & Kemenkes Compliance
+            <span className="hidden md:flex items-center gap-1.5 text-amber-300 font-medium border-l border-white/20 pl-4 text-[11px]">
+              <BookmarkCheck className="w-3.5 h-3.5 text-[#C5A059]" />
+              Lembaga Terakreditasi BNSP & Compliance Kemenkes
             </span>
           </div>
 
           <div className="flex items-center gap-3 text-[11px] sm:text-xs">
             <a 
-              href="https://wa.me/628176707234?text=Halo%20DEEP%20Training,%20saya%20ingin%20berkonsultasi%20mengenai%20program%20pelatihan"
+              href="https://wa.me/6281380050039?text=Halo%20DEEP%20Training,%20saya%20ingin%20berkonsultasi%20mengenai%20program%20pelatihan"
               target="_blank"
               rel="noreferrer"
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-3 py-1 rounded-md flex items-center gap-1.5 transition-all shadow-xs"
+              className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-3 py-1 rounded-full flex items-center gap-1.5 transition-all shadow-xs text-[11px]"
             >
               <MessageCircle className="w-3.5 h-3.5 fill-current" />
-              <span>Konsultasi Direct</span>
+              <span>Konsultasi WhatsApp</span>
             </a>
           </div>
         </div>
       </div>
 
       {/* Main Navbar Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
         {/* Brand Logo */}
         <button 
           onClick={() => handleNavClick('home')}
-          className="text-left focus:outline-none rounded p-1 transition-opacity hover:opacity-95"
+          className="text-left focus:outline-none rounded p-0.5 transition-opacity hover:opacity-95"
         >
           <Logo size="md" />
         </button>
@@ -89,10 +89,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, activeSection, s
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`px-3 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all ${
+                className={`px-3.5 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all ${
                   isActive
-                    ? 'text-[#002147] bg-slate-100 font-bold border-b-2 border-[#C5A059]'
-                    : 'text-slate-600 hover:text-[#002147] hover:bg-slate-50'
+                    ? 'text-[#002147] bg-amber-500/10 font-bold border-b-2 border-[#C5A059]'
+                    : 'text-slate-600 hover:text-[#002147] hover:bg-slate-100/80'
                 }`}
               >
                 {item.label}
@@ -105,10 +105,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, activeSection, s
         <div className="flex items-center gap-3">
           <button
             onClick={() => onOpenRegister()}
-            className="hidden sm:flex bg-[#002147] hover:bg-[#00142d] text-white text-xs font-bold px-4 py-2.5 rounded-lg tracking-wider uppercase transition-all shadow-xs items-center gap-1.5"
+            className="hidden sm:flex bg-[#002147] hover:bg-[#00142d] text-white text-xs font-bold px-4 py-2.5 rounded-xl tracking-wider uppercase transition-all shadow-xs hover:shadow-md items-center gap-1.5"
           >
             <span>Daftar Pelatihan</span>
-            <ChevronRight className="w-3.5 h-3.5" />
+            <ChevronRight className="w-3.5 h-3.5 text-amber-400" />
           </button>
 
           {/* Mobile Hamburger Button */}

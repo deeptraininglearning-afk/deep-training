@@ -172,7 +172,7 @@ export const CategoryOverview: React.FC<CategoryOverviewProps> = ({ onSelectCate
           </div>
 
           <a
-            href="https://wa.me/628176707234?text=Halo%20DEEP%20Training,%20saya%20tertarik%20dengan%20layanan%20In-House%20Training%20perusahaan"
+            href="https://wa.me/6281380050039?text=Halo%20DEEP%20Training,%20saya%20tertarik%20dengan%20layanan%20In-House%20Training%20perusahaan"
             target="_blank"
             rel="noreferrer"
             className="bg-[#C5A059] hover:bg-[#b08d48] text-white font-bold text-xs uppercase tracking-wider px-6 py-3 rounded shadow-lg transition-all shrink-0 text-center"

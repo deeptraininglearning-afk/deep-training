@@ -70,6 +70,7 @@ export default function App() {
         <Hero
           onOpenRegister={handleOpenRegister}
           onExploreCatalog={handleExploreCatalog}
+          onSelectCategory={handleSelectCategoryFromOverview}
         />
 
         {/* 4 Core Pillars Overview */}

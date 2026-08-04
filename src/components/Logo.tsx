@@ -49,22 +49,22 @@ export const Logo: React.FC<LogoProps> = ({ className = '', variant = 'light', s
         />
 
         {/* Subtitle Section: Left Line, Text, Right Line */}
-        <line x1="20" y1="120" x2="94" y2="120" stroke="#00A8E8" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="20" y1="120" x2="106" y2="120" stroke="#00A8E8" strokeWidth="2.5" strokeLinecap="round" />
 
         <text 
           x="223" 
           y="124" 
           textAnchor="middle" 
           fill={navyColor} 
-          fontSize="13" 
+          fontSize="12.5" 
           fontWeight="700" 
           fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
-          letterSpacing="2.4"
+          letterSpacing="2"
         >
           TRAINING & LEARNING SOLUTIONS
         </text>
 
-        <line x1="352" y1="120" x2="426" y2="120" stroke="#00A8E8" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="340" y1="120" x2="426" y2="120" stroke="#00A8E8" strokeWidth="2.5" strokeLinecap="round" />
       </svg>
     </div>
   );
