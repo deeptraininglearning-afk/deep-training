@@ -7,17 +7,21 @@ import {
   Menu, 
   X, 
   ChevronRight, 
-  BookmarkCheck
+  BookmarkCheck,
+  ShieldCheck
 } from 'lucide-react';
+import { useContent } from '../context/ContentContext';
 
 interface NavbarProps {
   onOpenRegister: (courseId?: string) => void;
+  onOpenAdmin: () => void;
   activeSection: string;
   setActiveSection: (section: string) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, activeSection, setActiveSection }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, onOpenAdmin, activeSection, setActiveSection }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { siteConfig, isAuthenticated } = useContent();
 
   const navItems = [
     { id: 'home', label: 'Beranda' },
@@ -57,9 +61,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, activeSection, s
             </span>
           </div>
 
-          <div className="flex items-center gap-3 text-[11px] sm:text-xs">
+          <div className="flex items-center gap-2.5 text-[11px] sm:text-xs">
             <a 
-              href="https://wa.me/6281380050039?text=Halo%20DEEP%20Training,%20saya%20ingin%20berkonsultasi%20mengenai%20program%20pelatihan"
+              href={`https://wa.me/62${siteConfig.whatsappNumber.replace(/[^0-9]/g, '').replace(/^0/, '')}?text=Halo%20DEEP%20Training,%20saya%20ingin%20berkonsultasi%20mengenai%20program%20pelatihan`}
               target="_blank"
               rel="noreferrer"
               className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-3 py-1 rounded-full flex items-center gap-1.5 transition-all shadow-xs text-[11px]"
@@ -67,6 +71,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, activeSection, s
               <MessageCircle className="w-3.5 h-3.5 fill-current" />
               <span>Konsultasi WhatsApp</span>
             </a>
+
+            <button
+              onClick={onOpenAdmin}
+              className="bg-[#C5A059] hover:bg-[#b08d48] text-white font-bold px-3 py-1 rounded-full flex items-center gap-1.5 transition-all shadow-xs text-[11px]"
+              title="Panel Admin Pengelola Konten"
+            >
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>{isAuthenticated ? 'Admin (Aktif)' : 'Panel Admin'}</span>
+            </button>
           </div>
         </div>
       </div>
@@ -149,6 +162,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister, activeSection, s
               className="w-full bg-[#002147] text-white text-xs font-bold py-3 rounded-lg uppercase tracking-wider text-center"
             >
               Formulir Pendaftaran
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenAdmin();
+              }}
+              className="w-full bg-[#C5A059] text-white text-xs font-bold py-2.5 rounded-lg uppercase tracking-wider text-center flex items-center justify-center gap-2"
+            >
+              <ShieldCheck className="w-4 h-4" />
+              <span>{isAuthenticated ? 'Panel Admin (Aktif)' : 'Panel Admin (Pengelola)'}</span>
             </button>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { CourseCategory } from '../types';
+import { useContent } from '../context/ContentContext';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -19,6 +20,8 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onExploreCatalog, onSelectCategory }) => {
+  const { siteConfig } = useContent();
+
   const handleCategoryClick = (category: CourseCategory) => {
     if (onSelectCategory) {
       onSelectCategory(category);
@@ -43,17 +46,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onExploreCatalog, on
             {/* Accreditation Badge */}
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-[#C5A059]/50 text-xs font-semibold text-amber-300 shadow-sm">
               <Award className="w-4 h-4 text-[#C5A059]" />
-              <span>Lembaga Pelatihan Terakreditasi BNSP & Kemenkes Compliance</span>
+              <span>{siteConfig.announcementText || 'Lembaga Pelatihan Terakreditasi BNSP & Kemenkes Compliance'}</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug text-white">
-              Pusat Pelatihan & Sertifikasi SDM Eksklusif
+              {siteConfig.heroTitle || 'Pusat Pelatihan & Sertifikasi SDM Eksklusif'}
             </h1>
 
             {/* Sub-headline */}
             <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
-              <strong className="text-white font-semibold">DEEP Training & Learning Solutions</strong> menyelenggarakan pelatihan eksekutif dan teknis tingkat lanjut di bidang <span className="text-[#00A8E8] font-semibold">Artificial Intelligence</span>, <span className="text-emerald-400 font-semibold">CT Scan & MRI Medis</span>, <span className="text-amber-300 font-semibold">Perbankan & Keuangan</span>, serta <span className="text-cyan-300 font-semibold">Cyber Security</span>.
+              {siteConfig.heroSubtitle || 'DEEP Training & Learning Solutions menyelenggarakan pelatihan eksekutif dan teknis tingkat lanjut.'}
             </p>
 
             {/* Interactive 4 Pillars Pills */}

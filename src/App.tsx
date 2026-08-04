@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { COURSES } from './data/coursesData';
 import { Course, CourseCategory } from './types';
+import { ContentProvider, useContent } from './context/ContentContext';
 
 // Components
 import { Navbar } from './components/Navbar';
@@ -15,8 +15,11 @@ import { TestimonialsAndClients } from './components/TestimonialsAndClients';
 import { ContactAndLocation } from './components/ContactAndLocation';
 import { Footer } from './components/Footer';
 import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
+import { AdminPanelModal } from './components/AdminPanelModal';
 
-export default function App() {
+function MainApp() {
+  const { courses, isAdminOpen, setIsAdminOpen } = useContent();
+
   const [activeSection, setActiveSection] = useState<string>('home');
   const [selectedCategory, setSelectedCategory] = useState<CourseCategory>('all');
   
@@ -35,6 +38,10 @@ export default function App() {
     setRegistrationCourseId(courseId);
     setRegistrationBatchId(batchId);
     setIsRegisterModalOpen(true);
+  };
+
+  const handleOpenAdmin = () => {
+    setIsAdminOpen(true);
   };
 
   const handleSelectCategoryFromOverview = (cat: CourseCategory) => {
@@ -62,6 +69,7 @@ export default function App() {
         activeSection={activeSection}
         setActiveSection={setActiveSection}
         onOpenRegister={handleOpenRegister}
+        onOpenAdmin={handleOpenAdmin}
       />
 
       {/* Main Content Sections */}
@@ -80,7 +88,7 @@ export default function App() {
 
         {/* Full Course Catalog with Search & Filters */}
         <CourseCatalog
-          courses={COURSES}
+          courses={courses}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
           onOpenCourseDetail={handleOpenCourseDetail}
@@ -89,7 +97,7 @@ export default function App() {
 
         {/* Schedule Matrix & Downloadable PDF Brochure */}
         <ScheduleAndBrochure
-          courses={COURSES}
+          courses={courses}
           onOpenRegister={handleOpenRegister}
         />
 
@@ -107,6 +115,7 @@ export default function App() {
       <Footer
         setActiveSection={setActiveSection}
         onOpenRegister={handleOpenRegister}
+        onOpenAdmin={handleOpenAdmin}
       />
 
       {/* Modals */}
@@ -119,14 +128,28 @@ export default function App() {
       <RegistrationFormModal
         isOpen={isRegisterModalOpen}
         onClose={() => setIsRegisterModalOpen(false)}
-        courses={COURSES}
+        courses={courses}
         initialCourseId={registrationCourseId}
         initialBatchId={registrationBatchId}
+      />
+
+      {/* Admin Panel Modal */}
+      <AdminPanelModal
+        isOpen={isAdminOpen}
+        onClose={() => setIsAdminOpen(false)}
       />
 
       {/* WhatsApp Floating Consultation Widget */}
       <WhatsAppFloatingButton />
 
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ContentProvider>
+      <MainApp />
+    </ContentProvider>
   );
 }

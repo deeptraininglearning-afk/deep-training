@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { MessageCircle, X, Send, Sparkles } from 'lucide-react';
+import { useContent } from '../context/ContentContext';
 
 export const WhatsAppFloatingButton: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [customMsg, setCustomMsg] = useState('');
+  const { siteConfig } = useContent();
 
   const defaultMsg = 'Halo Admin DEEP Training & Learning Solutions, saya ingin bertanya mengenai program pelatihan.';
 
   const handleSendWA = (messageToSend: string) => {
     const encoded = encodeURIComponent(messageToSend || defaultMsg);
-    window.open(`https://wa.me/6281380050039?text=${encoded}`, '_blank');
+    const cleanNum = siteConfig.whatsappNumber.replace(/[^0-9]/g, '').replace(/^0/, '');
+    window.open(`https://wa.me/62${cleanNum}?text=${encoded}`, '_blank');
     setIsOpen(false);
   };
 

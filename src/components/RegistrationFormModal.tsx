@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Course, RegistrationData } from '../types';
+import { useContent } from '../context/ContentContext';
 import { 
   X, 
   CheckCircle2, 
@@ -34,6 +35,7 @@ export const RegistrationFormModal: React.FC<RegistrationFormModalProps> = ({
   initialCourseId,
   initialBatchId,
 }) => {
+  const { addRegistration, siteConfig } = useContent();
   const [formData, setFormData] = useState<RegistrationData>({
     courseId: '',
     courseTitle: '',
@@ -106,9 +108,8 @@ export const RegistrationFormModal: React.FC<RegistrationFormModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const randomNum = Math.floor(10000 + Math.random() * 90000);
-    const code = `DEEP-REG-${new Date().getFullYear()}-${randomNum}`;
-    setRegistrationCode(code);
+    const record = addRegistration(formData);
+    setRegistrationCode(record.code);
     setIsSubmitted(true);
   };
 

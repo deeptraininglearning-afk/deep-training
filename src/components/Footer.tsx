@@ -1,5 +1,6 @@
 import React from 'react';
 import { Logo } from './Logo';
+import { useContent } from '../context/ContentContext';
 import { 
   Phone, 
   Mail, 
@@ -7,15 +8,19 @@ import {
   ArrowUp, 
   ShieldCheck, 
   Award,
-  Heart
+  Heart,
+  Lock
 } from 'lucide-react';
 
 interface FooterProps {
   setActiveSection: (section: string) => void;
   onOpenRegister: () => void;
+  onOpenAdmin?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ setActiveSection, onOpenRegister }) => {
+export const Footer: React.FC<FooterProps> = ({ setActiveSection, onOpenRegister, onOpenAdmin }) => {
+  const { siteConfig, setIsAdminOpen } = useContent();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -116,11 +121,11 @@ export const Footer: React.FC<FooterProps> = ({ setActiveSection, onOpenRegister
           <div className="space-y-3 text-xs">
             <h4 className="text-sm font-bold text-white uppercase tracking-wider text-[#C5A059]">Kepatuhan & Kontak</h4>
             <p className="text-slate-300 leading-relaxed">
-              Gedung DEEP Learning Center, Jl. TB Simatupang No. 88, Jakarta Selatan.
+              {siteConfig.address || 'Gedung DEEP Learning Center, Jl. TB Simatupang No. 88, Jakarta Selatan.'}
             </p>
             <div className="space-y-1 text-slate-300 pt-1">
-              <div>WA: 0813-8005-0039</div>
-              <div>Email: info@deeptraining.id</div>
+              <div>WA: {siteConfig.whatsappNumber}</div>
+              <div>Email: {siteConfig.email}</div>
             </div>
             <div className="bg-white/5 p-2 rounded border border-white/10 text-[10px] text-amber-300 font-medium mt-2">
               ✓ Terakreditasi Standar Pelatihan Kemenkes & Regulator
@@ -131,12 +136,19 @@ export const Footer: React.FC<FooterProps> = ({ setActiveSection, onOpenRegister
 
         {/* Bottom Copyright & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-          <div>
-            &copy; {new Date().getFullYear()} <strong>DEEP Training & Learning Solutions</strong>. All rights reserved.
+          <div className="flex items-center gap-3">
+            <span>&copy; {new Date().getFullYear()} <strong>DEEP Training & Learning Solutions</strong>. All rights reserved.</span>
           </div>
 
-          <div className="flex items-center gap-6">
-            <span className="text-[11px] text-slate-400">Desain Modern, Responsif & Terintegrasi</span>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => onOpenAdmin ? onOpenAdmin() : setIsAdminOpen(true)}
+              className="text-[#C5A059] hover:underline flex items-center gap-1 font-bold text-xs"
+            >
+              <Lock className="w-3.5 h-3.5" />
+              <span>Panel Admin (Kelola Konten)</span>
+            </button>
+            <span className="text-slate-600">•</span>
             <button
               onClick={scrollToTop}
               className="bg-[#C5A059] hover:bg-[#b08d48] text-white p-2.5 rounded-full shadow-lg transition-all"

@@ -71,6 +71,23 @@ export interface Testimonial {
   category: 'digital' | 'ai' | 'banking' | 'medical';
 }
 
+export interface SiteConfig {
+  whatsappNumber: string;
+  email: string;
+  phone: string;
+  address: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  announcementText: string;
+}
+
+export interface RegistrationRecord extends RegistrationData {
+  id: string;
+  code: string;
+  submittedAt: string;
+  status: 'Baru' | 'Dikonfirmasi' | 'Selesai' | 'Dibatalkan';
+}
+
 export interface SocialPost {
   id: string;
   platform: 'instagram' | 'linkedin' | 'youtube';

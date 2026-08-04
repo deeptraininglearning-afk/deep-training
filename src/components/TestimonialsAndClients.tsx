@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Testimonial } from '../types';
-import { TESTIMONIALS, CLIENT_LOGOS } from '../data/coursesData';
+import { CLIENT_LOGOS } from '../data/coursesData';
+import { useContent } from '../context/ContentContext';
 import { Star, Quote, Building2, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const TestimonialsAndClients: React.FC = () => {
   const [filterCategory, setFilterCategory] = useState<string>('all');
+  const { testimonials } = useContent();
 
-  const filteredTestimonials = TESTIMONIALS.filter((t) => {
+  const filteredTestimonials = testimonials.filter((t) => {
     if (filterCategory === 'all') return true;
     return t.category === filterCategory;
   });
